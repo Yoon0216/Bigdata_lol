@@ -137,8 +137,48 @@ def dup_sort():
             write = csv.writer(f)
             for i in data:
                 write.writerow(i[0:170])
+
+def opgg_process1():
+    with open("/Users/yoonyoungho/Documents/bigdata/opGG/opgg.csv", 'a', encoding='euc-kr') as f:
+            write = csv.writer(f)
+            for i in data:
+                write.writerow(i[0:170])
+
+def opgg_process():
+    with open("/Users/yoonyoungho/Documents/bigdata/opggCsv/opgg.csv", "r", encoding='euc-kr') as f:
+            read = csv.reader(f)
+            data = list(read)
+    list1=[]
+    list2=[]
+    list3=[]
+
+    for x in data:
+        try:
+            if "패배" in x[37] or "승리" in x[37]:
+                # x = re_place(x)
+                list1.append(x)
+            elif "etc" in x[37]:
+                list2.append(x)
+            else:
+                list3.append(x)
+        except:
+            continue
+
+    with open("/Users/yoonyoungho/Documents/bigdata/opGG/opgg1.csv", 'a', encoding='euc-kr') as f:
+        write = csv.writer(f)
+        for i in list1:
+            write.writerow(i[0:168])
+        
+
+    with open("/Users/yoonyoungho/Documents/bigdata/opGG/opgg2.csv", 'a', encoding='euc-kr') as f:
+        write = csv.writer(f)
+        for i in list2:
+            write.writerow(i[0:168]) 
+
+    with open("/Users/yoonyoungho/Documents/bigdata/opGG/opgg3.csv", 'a', encoding='euc-kr') as f:
+        write = csv.writer(f)
+        for i in list3:
+            write.writerow(i[0:168]) 
+
+
                
-    
-# sort_data()
-# ps_data()
-# gg_data()
