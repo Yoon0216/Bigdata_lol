@@ -138,11 +138,6 @@ def dup_sort():
             for i in data:
                 write.writerow(i[0:170])
 
-def opgg_process1():
-    with open("/Users/yoonyoungho/Documents/bigdata/opGG/opgg.csv", 'a', encoding='euc-kr') as f:
-            write = csv.writer(f)
-            for i in data:
-                write.writerow(i[0:170])
 
 def opgg_process():
     with open("/Users/yoonyoungho/Documents/bigdata/opggCsv/opgg.csv", "r", encoding='euc-kr') as f:
